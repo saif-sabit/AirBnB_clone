@@ -1500,7 +1500,7 @@ class TestHBNBCommand_update(unittest.TestCase):
         self.assertEqual(9.8, test_dict["latitude"])
 
 
-class TestHBNBCommand_count(unittest
+class TestHBNBCommand_count(unittest):
 
     @classmethod
     def setUp(self):
@@ -1509,10 +1509,11 @@ class TestHBNBCommand_count(unittest
         except IOError:
             pass
         FileStorage._FileStorage__objects = {}
-         # Test counting with one object present
+        # Test counting with one object present
 
     @classmethod
     def tearDown(self):
+
         try:
             os.remove("file.json")
         except IOError:
