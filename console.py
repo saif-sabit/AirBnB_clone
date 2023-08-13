@@ -2,17 +2,7 @@
 '''HolbertonBnB command interpreter'''
 import cmd
 import re
-import shlex
-import models
 from datetime import datetime
-from models.base_model import BaseModel
-from models import storage
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -26,19 +16,21 @@ class HBNBCommand(cmd.Cmd):
         "State",
         "User"
     ]
+
+
 def parse(arg):
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
         if brackets is None:
-            return [i.strip(",") for i in split(arg)]
+            return [i.strip(",") for i in (arg).split()]
         else:
-            lexer = split(arg[:brackets.span()[0]])
+            lexer = (arg[:brackets.span()[0]]).split()
             retl = [i.strip(",") for i in lexer]
             retl.append(brackets.group())
             return retl
     else:
-        lexer = split(arg[:curly_braces.span()[0]])
+        lexer = (arg[:curly_braces.span()[0]]).split()
         retl = [i.strip(",") for i in lexer]
         retl.append(curly_braces.group())
         return retl
