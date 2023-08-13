@@ -1500,7 +1500,7 @@ class TestHBNBCommand_update(unittest.TestCase):
         self.assertEqual(9.8, test_dict["latitude"])
 
 
-class TestHBNBCommand_count(unittest):
+class TestHBNBCommand_count(unittest.TestCase):
 
     @classmethod
     def setUp(self):
