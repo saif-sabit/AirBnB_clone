@@ -87,17 +87,17 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Quit."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """EOF for exit."""
         print("")
         return True
 
     def do_create(self, arg):
         """Usage: create <class>
-        Create a new class instance and print its id.
+        Create a new instance and print the id.
         """
         argl = parse(arg)
         if len(argl) == 0:
@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Usage: show <class> <id> or <class>.show(<id>)
-        Display the string representation of a class instance of a given id.
+        Show the string form of a class instance by id.
         """
         argl = parse(arg)
         objdict = storage.all()
@@ -127,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """Usage: destroy <class> <id> or <class>.destroy(<id>)
-        Delete a class instance of a given id."""
+        Destroy a class instance by id."""
         argl = parse(arg)
         objdict = storage.all()
         if len(argl) == 0:
@@ -144,8 +144,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Usage: all or all <class> or <class>.all()
-        Display string representations of all instances of a given class.
-        If no class is specified, displays all instantiated objects."""
+        show string form of all instances of a class.
+        or all shows all instances."""
         argl = parse(arg)
         if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
@@ -160,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         """Usage: count <class> or <class>.count()
-        Retrieve the number of instances of a given class."""
+        Number of instances of the class."""
         argl = parse(arg)
         count = 0
         for obj in storage.all().values():
@@ -172,8 +172,7 @@ class HBNBCommand(cmd.Cmd):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or
        <class>.update(<id>, <dictionary>)
-        Update a class instance of a given id by adding or updating
-        a given attribute key/value pair or dictionary."""
+        Update instance using key/value pair or dictionary."""
         argl = parse(arg)
         objdict = storage.all()
 
