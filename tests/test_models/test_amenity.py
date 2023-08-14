@@ -5,6 +5,7 @@ from models.engine.file_storage import FileStorage
 from models import storage
 from models.base_model import BaseModel
 
+
 class TestAmenity(unittest.TestCase):
 
     def setUp(self):
@@ -24,7 +25,8 @@ class TestAmenity(unittest.TestCase):
     def test_instantiation(self):
         # Test the instantiation of Amenity class
         amenity_instance = Amenity()
-        self.assertEqual(str(type(amenity_instance)), "<class 'models.amenity.Amenity'>")
+        self.assertEqual(str(type(amenity_instance)),
+                         "<class 'models.amenity.Amenity'>")
         self.assertIsInstance(amenity_instance, Amenity)
         self.assertTrue(issubclass(type(amenity_instance), BaseModel))
 
@@ -34,8 +36,9 @@ class TestAmenity(unittest.TestCase):
         amenity_instance = Amenity()
         for attribute_name, attribute_type in attributes.items():
             self.assertTrue(hasattr(amenity_instance, attribute_name))
-            self.assertEqual(type(getattr(amenity_instance, attribute_name, None)), attribute_type)
+            self.assertEqual(type(getattr(
+                amenity_instance, attribute_name, None)), attribute_type)
+
 
 if __name__ == "__main__":
     unittest.main()
-

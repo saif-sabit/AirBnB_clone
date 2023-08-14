@@ -9,6 +9,7 @@ from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
+
 class TestBaseModel(unittest.TestCase):
 
     # Set up and tear down methods
@@ -40,16 +41,17 @@ class TestBaseModel(unittest.TestCase):
         b.save()
         key = "{}.{}".format(type(b).__name__, b.id)
         d = {key: b.to_dict()}
-        
+
         # Check if the data is saved to the file correctly
         self.assertTrue(os.path.isfile(FileStorage._FileStorage__file_path))
-        with open(FileStorage._FileStorage__file_path, "r", encoding="utf-8") as f:
+        with open(FileStorage._FileStorage__file_path, "r",
+                  encoding="utf-8") as f:
             self.assertEqual(len(f.read()), len(json.dumps(d)))
             f.seek(0)
             self.assertEqual(json.load(f), d)
 
     # Other test methods...
 
+
 if __name__ == '__main__':
     unittest.main()
-

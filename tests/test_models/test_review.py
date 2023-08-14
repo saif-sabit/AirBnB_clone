@@ -5,6 +5,7 @@ from models.engine.file_storage import FileStorage
 from models import storage
 from models.base_model import BaseModel
 
+
 class TestReview(unittest.TestCase):
 
     # Set up and tear down methods
@@ -23,7 +24,8 @@ class TestReview(unittest.TestCase):
     def test_instantiation(self):
         # Test instantiation of Review class
         review_instance = Review()
-        self.assertEqual(str(type(review_instance)), "<class 'models.review.Review'>")
+        self.assertEqual(str(type(review_instance)),
+                         "<class 'models.review.Review'>")
         self.assertIsInstance(review_instance, Review)
         self.assertTrue(issubclass(type(review_instance), BaseModel))
 
@@ -35,8 +37,9 @@ class TestReview(unittest.TestCase):
         review_instance = Review()
         for attribute_name, attribute_type in attributes.items():
             self.assertTrue(hasattr(review_instance, attribute_name))
-            self.assertEqual(type(getattr(review_instance, attribute_name, None)), attribute_type)
+            self.assertEqual(type(getattr(review_instance, attribute_name,
+                                          None)), attribute_type)
+
 
 if __name__ == "__main__":
     unittest.main()
-
