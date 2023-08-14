@@ -171,8 +171,7 @@ class HBNBCommand(cmd.Cmd):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or
        <class>.update(<id>, <dictionary>)
-        Update a class instance by
-          key/value pair or dictionary."""
+        Update a class instance by key/value pair or dictionary."""
         argl = parse(arg)
         objdict = storage.all()
 
