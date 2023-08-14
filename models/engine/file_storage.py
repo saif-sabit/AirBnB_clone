@@ -7,7 +7,11 @@ import os
 
 class FileStorage:
 
-    """Class for serializtion and deserialization of base classes."""
+    """Class for serializtion and deserialization of base classes.
+        Attributes:
+        __file_path = file name.
+        __objects = Adictionary of objects.
+        """
     __file_path = "file.json"
     __objects = {}
 
